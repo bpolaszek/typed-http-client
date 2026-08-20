@@ -12,7 +12,7 @@ jobs:
         php:
           - 8.5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -22,20 +22,17 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: Check types
-        id: types
-        run: composer types:check
+      - parallel:
+        - name: Check types
+          run: composer types:check
 
-      - name: Check style
-        id: style
-        run: composer style:check
+        - name: Check style
+          run: composer style:check
 
-      - name: Run tests
-        id: tests
-        run: composer tests:run:with-coverage -- --coverage-clover=coverage.xml
+        - name: Run tests
+          run: composer tests:run:with-coverage -- --coverage-clover=coverage.xml
 
       - name: Upload coverage to Codecov
-        id: upload-coverage
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
