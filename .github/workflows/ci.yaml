@@ -23,15 +23,19 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Check types
+        id: types
         run: composer types:check
 
       - name: Check style
+        id: style
         run: composer style:check
 
-      - name: Run test suite
+      - name: Run tests
+        id: tests
         run: composer tests:run:with-coverage -- --coverage-clover=coverage.xml
 
       - name: Upload coverage to Codecov
+        id: upload-coverage
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
