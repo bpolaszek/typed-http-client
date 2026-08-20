@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`bentools/typed-http-client` — a small library (PHP >= 8.5) decorating Symfony's HTTP Client so that responses hydrate into typed objects via `getData()`. Only hard dependency: `symfony/contracts`. `symfony/http-client` is dev-only (used as default transport and in tests).
+`bentools/typed-http-client` — a small library (PHP >= 8.2) decorating Symfony's HTTP Client so that responses hydrate into typed objects via `getData()`. Only hard dependency: `symfony/contracts`. `symfony/http-client` is dev-only (used as default transport and in tests).
 
 ## Commands
 

@@ -22,7 +22,7 @@ $todo = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos/1')-
 composer require bentools/typed-http-client
 ```
 
-Requires PHP >= 8.5. The library only depends on `symfony/contracts`; bring your own `HttpClientInterface` implementation (e.g. `symfony/http-client`, used by default when installed).
+Requires PHP >= 8.2. The library only depends on `symfony/contracts`; bring your own `HttpClientInterface` implementation (e.g. `symfony/http-client`, used by default when installed).
 
 ## Usage
 
