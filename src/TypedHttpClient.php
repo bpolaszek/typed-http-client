@@ -75,9 +75,7 @@ final readonly class TypedHttpClient implements HttpClientInterface
      */
     public function withOptions(array $options): static
     {
-        return clone ($this, [
-            'innerClient' => $this->innerClient->withOptions($options),
-        ]);
+        return new self($this->factory, $this->innerClient->withOptions($options));
     }
 
     /**
