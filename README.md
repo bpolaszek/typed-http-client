@@ -1,4 +1,4 @@
-# Symfony *Typed* HTTP Client:
+# Symfony *Typed* HTTP Client
 
 [![CI Workflow](https://github.com/bpolaszek/typed-http-client/actions/workflows/ci.yaml/badge.svg)](https://github.com/bpolaszek/typed-http-client/actions/workflows/ci.yaml)
 [![Code Coverage](https://codecov.io/github/bpolaszek/typed-http-client/graph/badge.svg?token=Rls0t1KIhe)](https://codecov.io/github/bpolaszek/typed-http-client)
