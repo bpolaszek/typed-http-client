@@ -1,0 +1,59 @@
+{
+  "name": "bentools/typed-http-client",
+  "description": "Symfony HTTP Client returning real objects.",
+  "type": "library",
+  "keywords": [
+    "symfony",
+    "http-client",
+    "typed",
+    "dto",
+    "hydration",
+    "decorator"
+  ],
+  "require": {
+    "php": ">=8.5",
+    "symfony/contracts": "~3.7"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^8.1",
+    "symfony/http-client": "^8.1",
+    "phpstan/phpstan": "^2.2",
+    "pestphp/pest": "^5.1",
+    "friendsofphp/php-cs-fixer": "^3.95"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "BenTools\\TypedHttpClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BenTools\\TypedHttpClient\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "tests:run": "vendor/bin/pest",
+    "tests:run:with-coverage": "XDEBUG_MODE=coverage vendor/bin/pest --coverage --min=100",
+    "types:check": "vendor/bin/phpstan",
+    "style:check": "vendor/bin/php-cs-fixer check",
+    "style:fix": "vendor/bin/php-cs-fixer fix",
+    "ci:check": [
+      "@composer validate",
+      "@types:check",
+      "@style:check",
+      "@tests:run:with-coverage"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Beno!t POLASZEK <bpolaszek@gmail.com>"
+    }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
