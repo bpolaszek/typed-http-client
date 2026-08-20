@@ -1,7 +1,7 @@
-# bentools/typed-http-client
+# Symfony *Typed* HTTP Client:
 
 [![CI Workflow](https://github.com/bpolaszek/typed-http-client/actions/workflows/ci.yaml/badge.svg)](https://github.com/bpolaszek/typed-http-client/actions/workflows/ci.yaml)
-[![codecov](https://codecov.io/gh/bpolaszek/typed-http-client/branch/main/graph/badge.svg)](https://codecov.io/gh/bpolaszek/typed-http-client)
+[![Code Coverage](https://codecov.io/github/bpolaszek/typed-http-client/graph/badge.svg?token=Rls0t1KIhe)](https://codecov.io/github/bpolaszek/typed-http-client)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A thin, type-safe decorator around [Symfony's HTTP Client](https://symfony.com/doc/current/http_client.html) that hydrates responses into **real objects** instead of plain arrays.
