@@ -9,11 +9,10 @@ A thin, type-safe decorator around [Symfony's HTTP Client](https://symfony.com/d
 You keep the whole `HttpClientInterface` API — including streaming — and get a `getData()` method on every response, returning whatever type your factory produces. Static analyzers (PHPStan, Psalm) follow the type all the way through, thanks to generics annotations.
 
 ```php
-/** @var TypedHttpClient<Todo> $client */
 $client = new TypedHttpClient(new TodoFactory());
 
 $todo = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos/1')->getData();
-// $todo is a Todo object — and PHPStan knows it. ✨
+// $todo is a Todo object — and PHPStan knows it, no annotation required. ✨
 ```
 
 ## Installation
@@ -66,8 +65,8 @@ final readonly class TodoFactory implements DataFactoryInterface
 ```
 
 ```php
-/** @var TypedHttpClient<Todo> $client */
 $client = new TypedHttpClient(new TodoFactory());
+// PHPStan infers TypedHttpClient<Todo> from the factory — no @var annotation needed.
 ```
 
 ### Discriminating by request
@@ -99,11 +98,8 @@ final readonly class TodoEndpointFactory implements DataFactoryInterface
 ```php
 $baseClient = new TypedHttpClient(innerClient: HttpClient::createForBaseUri('https://api.example.com'));
 
-/** @var TypedHttpClient<Todo> $todoClient */
-$todoClient = $baseClient->withFactory(new TodoFactory());
-
-/** @var TypedHttpClient<User> $userClient */
-$userClient = $baseClient->withFactory(new UserFactory());
+$todoClient = $baseClient->withFactory(new TodoFactory()); // TypedHttpClient<Todo>
+$userClient = $baseClient->withFactory(new UserFactory()); // TypedHttpClient<User>
 ```
 
 `withOptions()` works exactly like Symfony's, and keeps the factory:
